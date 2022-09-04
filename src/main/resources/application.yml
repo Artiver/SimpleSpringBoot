@@ -7,7 +7,8 @@ spring:
   # 模板设置
   thymeleaf:
     suffix: .html
-    cache: true
+    # 热更新 修改了html后 只要Build Project就能刷新了 无需重启项目
+    cache: false
   # Database
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,7 +21,7 @@ logging:
   level:
     root: info
 
-#Mybatis
+# Mybatis
 mybatis:
   # 向mybatis注册pojo类 能简化resultType的配置
   type-aliases-package: org.artiver.myspringboot.pojo
