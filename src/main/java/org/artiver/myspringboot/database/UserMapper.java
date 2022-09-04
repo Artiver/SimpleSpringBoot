@@ -1,7 +1,7 @@
 package org.artiver.myspringboot.database;
 
+import org.apache.ibatis.annotations.*;
 import org.artiver.myspringboot.pojo.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +11,10 @@ import java.util.List;
 @Repository
 // 该注解主要用在持久层的接口上
 public interface UserMapper {
+    @Select("select id, username from users")
     List<User> queryAll();
 
     List<User> queryCustom(String username, String password);
+
+    List<User> queryInLine(@Param("username") String var1, @Param("password") String var2);
 }

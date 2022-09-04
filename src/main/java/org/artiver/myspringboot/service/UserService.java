@@ -1,5 +1,6 @@
 package org.artiver.myspringboot.service;
 
+import org.apache.ibatis.annotations.Select;
 import org.artiver.myspringboot.database.UserMapper;
 import org.artiver.myspringboot.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,9 @@ public class UserService {
 
     public List<User> getCustomUsers(String username, String password) {
         return userMapper.queryCustom(username, password);
+    }
+
+    public List<User> getInlineUsers(String username, String password) {
+        return userMapper.queryInLine(username, password);
     }
 }

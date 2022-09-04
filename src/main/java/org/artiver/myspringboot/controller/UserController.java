@@ -25,4 +25,10 @@ public class UserController {
     public List<User> getCustomUsers(@RequestBody User user) {
         return userService.getCustomUsers(user.getUsername(), user.getPassword());
     }
+
+    @PostMapping("getInline")
+    public List<User> getInlineUser(@RequestBody User user) {
+        return userService.getInlineUsers(user.getUsername(), user.getPassword());
+    }
+
 }
